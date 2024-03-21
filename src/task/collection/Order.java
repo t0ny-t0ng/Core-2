@@ -40,15 +40,18 @@ public class Order {
         System.out.println(summ);
     }
 
-    public static void main (String[] args) {
-//        ordersMaker("Ivanov", "Tea, Donut", 300);
-//        ordersMaker("Petrov", "Cofee, CheeseCake", 400);
-//        ordersMaker("Sidorov", "Lemonade, Cookie", 250);
-//        ordersMaker("Vasin", "Orange fresh, sandwich", 500);
-//
-//        getMaxAmountOrder();
-//
-//        getOrdersAmountSumm();
     }
 
-}
+    public class OrderTesting {
+        public static void main(String[] args) {
+//        Order order1 = new Order.ordersMaker("Ivanov", "Tea, Donut", 300);
+//        Order order2 = new Order.ordersMaker("Petrov", "Cofee, CheeseCake", 400);
+//        Order order3 = new Order.ordersMaker("Sidorov", "Lemonade, Cookie", 250);
+//        Order order4 = new Order.ordersMaker("Vasin", "Orange fresh, sandwich", 500);
+//
+//        Order.getMaxAmountOrder();
+//
+//        Order.getOrdersAmountSumm();
+        }
+
+    }
