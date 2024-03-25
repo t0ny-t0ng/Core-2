@@ -5,7 +5,7 @@ import task.models.MediumBox;
 import task.models.MicroBox;
 import task.models.SmallBox;
 
-public class Generics {
+public class Generics <T extends BigBox> {
 
 
   public static void main(String[] args) {

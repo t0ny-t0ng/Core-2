@@ -1,57 +1,85 @@
 package task.collection;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
-public class Order {
 // TODO: Учет заказов:
 //  Создайте класс Order с полями id, customer и totalAmount.
 //  Создайте метод, который будет принимать список заказов и выводить заказы с наибольшей суммой.
 //  Создайте метод, который будет принимать список заказов и возвращать общую сумму всех заказов.
 
-    static Integer customerID = 1;
-    static Integer orderID = 1;
-    String customer;
-    Integer totalAmount;
-    String orderData;
+import java.net.InterfaceAddress;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
-    Map<Integer, String> customersMap = new HashMap<>();
-    Map<Integer, String> ordersMap = new HashMap<>();
-    ArrayList<Integer> ordersList = new ArrayList<>();
+public class Order {
 
-    public void ordersMaker(String customer, String orderData, Integer totalAmount) {
-        customersMap.put(customerID, this.customer);
-        customerID++;
-        ordersMap.put(orderID, this.orderData);
-        orderID++;
-        ordersList.add(orderID, totalAmount);
+    private int id;
+    private String customer;
+    private int totalAmount;
+
+    public int getId() {
+        return id;
     }
 
-    public void getMaxAmountOrder() {
-        System.out.println(Collections.max(ordersList));
+    public String getCustomer() {
+        return customer;
     }
 
-    public void getOrdersAmountSumm() {
-        Integer summ = 0;
-        for (int i = 0; i < ordersList.size(); i++)
-            summ += ordersList.get(i);
-        System.out.println(summ);
+    public int getTotalAmount() {
+        return totalAmount;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
+
+    public void setTotalAmount(int totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public Order(int id, String customer, int totalAmount) {
+        this.setId(id);
+        this.setCustomer(customer);
+        this.setTotalAmount(totalAmount);
+    }
+
+    public String toString() {
+        return "Order{" + "id='" + getId() + '\'' + ", customer=" + getCustomer() + '\'' +
+                ", total amount = " + getTotalAmount();
 
     }
 
-    public class OrderTesting {
-        public static void main(String[] args) {
-//        Order order1 = new Order.ordersMaker("Ivanov", "Tea, Donut", 300);
-//        Order order2 = new Order.ordersMaker("Petrov", "Cofee, CheeseCake", 400);
-//        Order order3 = new Order.ordersMaker("Sidorov", "Lemonade, Cookie", 250);
-//        Order order4 = new Order.ordersMaker("Vasin", "Orange fresh, sandwich", 500);
-//
-//        Order.getMaxAmountOrder();
-//
-//        Order.getOrdersAmountSumm();
+
+
+    public static void main(String[] args) {
+
+        Order order1 = new Order(334, "Ivanov", 350);
+
+        Order order2 = new Order(335, "Petrov", 450);
+
+        Order order3 = new Order(336, "Vasin", 500);
+
+        List<Order> ordersList = new ArrayList<>();
+        ordersList.add(order1);
+        ordersList.add(order2);
+        ordersList.add(order3);
+
+        Order maxAmountOrder = ordersList.stream().max((x, y) -> x.getTotalAmount() - y.getTotalAmount()).get();
+        System.out.println("max amount order = " + maxAmountOrder);
+
+
+
+
+
         }
-
     }
+
+
+
+
+
+
